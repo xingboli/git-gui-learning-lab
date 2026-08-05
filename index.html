@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="用一个完整小项目学习 VS Code、Git 与 GitHub 工作流。" />
+    <title>Git 学习打卡板</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#learning-list">跳到学习清单</a>
+    <main class="page-shell">
+      <header class="hero">
+        <p class="eyebrow">VS Code · Git · GitHub</p>
+        <h1>把 Git 学成一套工作习惯</h1>
+        <p class="hero-copy">
+          不背命令。跟着一次真实的开发与发布过程，理解什么时候提交、什么时候开分支，以及出了问题如何安全恢复。
+        </p>
+      </header>
+
+      <section class="progress-panel" aria-labelledby="progress-title">
+        <div>
+          <p class="section-label" id="progress-title">学习进度</p>
+          <p class="progress-number"><span id="completed-count">0</span> / <span id="total-count">8</span></p>
+        </div>
+        <div class="progress-copy">
+          <p id="progress-message" aria-live="polite">从第一个检查点开始吧。</p>
+          <div class="progress-track" aria-hidden="true">
+            <span id="progress-bar"></span>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="checklist-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-label">GitHub Flow</p>
+            <h2 id="checklist-title">八个关键检查点</h2>
+          </div>
+          <button class="reset-button" id="reset-progress" type="button">重置进度</button>
+        </div>
+
+        <ol class="learning-list" id="learning-list">
+          <li class="learning-card" data-step-id="workspace">
+            <input id="step-workspace" type="checkbox" />
+            <label for="step-workspace">
+              <span class="step-number">01</span>
+              <span><strong>建立工作区</strong><small>初始化仓库，确认当前分支与文件状态。</small></span>
+            </label>
+          </li>
+          <li class="learning-card" data-step-id="commit">
+            <input id="step-commit" type="checkbox" />
+            <label for="step-commit">
+              <span class="step-number">02</span>
+              <span><strong>完成一次好提交</strong><small>检查差异，只暂存同一个目的的修改。</small></span>
+            </label>
+          </li>
+          <li class="learning-card" data-step-id="branch">
+            <input id="step-branch" type="checkbox" />
+            <label for="step-branch">
+              <span class="step-number">03</span>
+              <span><strong>用分支隔离工作</strong><small>从最新 main 创建描述明确的功能分支。</small></span>
+            </label>
+          </li>
+          <li class="learning-card" data-step-id="sync">
+            <input id="step-sync" type="checkbox" />
+            <label for="step-sync">
+              <span class="step-number">04</span>
+              <span><strong>同步到 GitHub</strong><small>发布分支并确认本地与远端一致。</small></span>
+            </label>
+          </li>
+          <li class="learning-card" data-step-id="pr">
+            <input id="step-pr" type="checkbox" />
+            <label for="step-pr">
+              <span class="step-number">05</span>
+              <span><strong>通过 PR 合并</strong><small>解释为什么改、如何验证，再合并进 main。</small></span>
+            </label>
+          </li>
+          <li class="learning-card" data-step-id="conflict">
+            <input id="step-conflict" type="checkbox" />
+            <label for="step-conflict">
+              <span class="step-number">06</span>
+              <span><strong>解决一次冲突</strong><small>理解两边意图，保留正确的最终内容。</small></span>
+            </label>
+          </li>
+          <li class="learning-card" data-step-id="recover">
+            <input id="step-recover" type="checkbox" />
+            <label for="step-recover">
+              <span class="step-number">07</span>
+              <span><strong>安全撤销错误</strong><small>未发布就丢弃，已发布就用 revert 留下记录。</small></span>
+            </label>
+          </li>
+          <li class="learning-card" data-step-id="release">
+            <input id="step-release" type="checkbox" />
+            <label for="step-release">
+              <span class="step-number">08</span>
+              <span><strong>发布一个版本</strong><small>测试通过后打标签、写说明并验证线上结果。</small></span>
+            </label>
+          </li>
+        </ol>
+      </section>
+
+      <aside class="next-action" aria-labelledby="next-action-title">
+        <p class="section-label">现在做什么</p>
+        <h2 id="next-action-title">下一步建议</h2>
+        <p id="next-action-text">打开 VS Code 的源代码管理面板，先学会判断工作区是否干净。</p>
+      </aside>
+    </main>
+
+    <footer>
+      <p>在真实项目里练习，在可恢复的历史里成长。</p>
+      <a href="https://github.com/xingboli/git-gui-learning-lab">查看 GitHub 仓库</a>
+    </footer>
+
+    <dialog id="reset-dialog" aria-labelledby="reset-title">
+      <form method="dialog">
+        <h2 id="reset-title">重置所有进度？</h2>
+        <p>八个检查点都会恢复为未完成。这个操作不会影响 Git 仓库。</p>
+        <div class="dialog-actions">
+          <button value="cancel">取消</button>
+          <button class="confirm-button" value="confirm">确认重置</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>
