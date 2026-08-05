@@ -1,0 +1,362 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+:root {
+  color-scheme: light;
+  --ink: #14231f;
+  --muted: #5d6d67;
+  --paper: #f4f1e8;
+  --surface: #fffdf7;
+  --line: #cfd8cf;
+  --green: #167a5b;
+  --green-dark: #0d4f3c;
+  --lime: #c6f36b;
+  --coral: #f3775a;
+  --shadow: 0 18px 60px rgb(31 58 47 / 10%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 8% 8%, rgb(198 243 107 / 35%), transparent 27rem),
+    radial-gradient(circle at 92% 35%, rgb(243 119 90 / 16%), transparent 24rem),
+    var(--paper);
+  font-family: "Noto Sans SC", system-ui, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 10;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.7rem 1rem;
+  border-radius: 0.5rem;
+  color: white;
+  background: var(--green-dark);
+  transform: translateY(-160%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.page-shell {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 5rem 0 4rem;
+}
+
+.hero {
+  max-width: 820px;
+  margin-bottom: 3rem;
+}
+
+.eyebrow,
+.section-label {
+  margin: 0 0 0.55rem;
+  color: var(--green);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+.progress-number,
+.step-number {
+  font-family: "Space Grotesk", "Noto Sans SC", sans-serif;
+}
+
+h1 {
+  max-width: 740px;
+  margin-bottom: 1.25rem;
+  font-size: clamp(3rem, 8vw, 6.4rem);
+  line-height: 0.94;
+  letter-spacing: -0.055em;
+}
+
+.hero-copy {
+  max-width: 680px;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.85;
+}
+
+.progress-panel {
+  display: grid;
+  grid-template-columns: 12rem 1fr;
+  gap: 2rem;
+  align-items: end;
+  margin-bottom: 4rem;
+  padding: 1.6rem;
+  border: 1px solid var(--green-dark);
+  border-radius: 1.4rem;
+  background: var(--green-dark);
+  box-shadow: var(--shadow);
+  color: white;
+}
+
+.progress-panel .section-label {
+  color: var(--lime);
+}
+
+.progress-number {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.progress-copy p {
+  margin-bottom: 0.8rem;
+  color: #e1ece6;
+}
+
+.progress-track {
+  height: 0.7rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 18%);
+}
+
+.progress-track span {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--lime);
+  transition: width 240ms ease;
+}
+
+.section-heading {
+  display: flex;
+  gap: 1rem;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.section-heading h2,
+.next-action h2 {
+  margin-bottom: 0;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  letter-spacing: -0.03em;
+}
+
+.reset-button,
+.dialog-actions button {
+  min-height: 2.75rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.reset-button:hover,
+.reset-button:focus-visible {
+  background: var(--ink);
+  color: white;
+}
+
+.learning-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.learning-card {
+  position: relative;
+  min-height: 9rem;
+}
+
+.learning-card input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.learning-card label {
+  display: grid;
+  grid-template-columns: 3.4rem 1fr;
+  gap: 1rem;
+  align-items: start;
+  height: 100%;
+  padding: 1.35rem;
+  border: 1px solid var(--line);
+  border-radius: 1.2rem;
+  background: var(--surface);
+  box-shadow: 0 8px 28px rgb(37 63 52 / 5%);
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.learning-card label:hover {
+  border-color: var(--green);
+  transform: translateY(-2px);
+}
+
+.learning-card input:focus-visible + label {
+  outline: 3px solid var(--coral);
+  outline-offset: 3px;
+}
+
+.learning-card input:checked + label {
+  border-color: var(--green);
+  background: #e9f7d7;
+}
+
+.learning-card input:checked + label strong {
+  text-decoration: line-through;
+  text-decoration-color: var(--green);
+  text-decoration-thickness: 2px;
+}
+
+.step-number {
+  display: grid;
+  width: 3.2rem;
+  height: 3.2rem;
+  place-items: center;
+  border-radius: 50%;
+  color: white;
+  background: var(--green);
+  font-weight: 700;
+}
+
+.learning-card strong,
+.learning-card small {
+  display: block;
+}
+
+.learning-card strong {
+  margin-bottom: 0.45rem;
+  font-size: 1.08rem;
+}
+
+.learning-card small {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.next-action {
+  margin-top: 4rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border-left: 0.55rem solid var(--coral);
+  border-radius: 0 1.3rem 1.3rem 0;
+  background: #ffe7df;
+}
+
+.next-action p:last-child {
+  max-width: 760px;
+  margin: 1rem 0 0;
+  color: #714235;
+  line-height: 1.75;
+}
+
+footer {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 1.5rem max(1rem, calc((100% - 1120px) / 2));
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer a {
+  color: var(--green-dark);
+  font-weight: 700;
+}
+
+dialog {
+  width: min(31rem, calc(100% - 2rem));
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 1.2rem;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+dialog::backdrop {
+  background: rgb(8 30 23 / 62%);
+}
+
+.dialog-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+.dialog-actions .confirm-button {
+  border-color: var(--coral);
+  background: var(--coral);
+  color: #30120b;
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .page-shell {
+    padding-top: 3rem;
+  }
+
+  .progress-panel,
+  .learning-list {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-panel {
+    gap: 1.25rem;
+  }
+
+  .section-heading,
+  footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
